@@ -11,7 +11,7 @@ SRCS=$(wildcard src/*.c)
 CFLAGS=-std=c11 -Wall -Werror -g -Os -mmcu=${MCU} -DF_CPU=${CLK} -I.
 
 all: 
-	[ -d foo ] || mkdir foo
+	[ -d bin ] || mkdir bin
 	${CC} ${CFLAGS} -o bin/${PROJECT_NAME}.bin ${SRCS}
 	${OBJCOPY} -j .text -j .data -O ihex bin/${PROJECT_NAME}.bin bin/${PROJECT_NAME}.hex
 clean:
